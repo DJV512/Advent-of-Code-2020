@@ -1,6 +1,3 @@
-FILENAME = "sample_input.txt"
-#FILENAME = "input.txt"
-
 import time
 import utils
 
@@ -35,14 +32,39 @@ def debug_print(*args, **kwargs):
 
 
 def parse_data():
-    return utils.parse_input(FILENAME, method="")
+    # FILENAME = "sample_input.txt"
+    FILENAME = "input.txt"
+    return utils.parse_input(FILENAME, method="raw")
 
 
 def part1(data):
-    return None
+
+    for line1 in data:
+        num1 = int(line1.strip())
+        for line2 in data:
+            num2 = int(line2.strip())
+            if num1 != num2:
+                if num1 + num2 == 2020:
+                    print(num1, num2)
+                    return num1 * num2
+
+    
 
 
 def part2(data):
+
+    for line1 in data:
+        num1 = int(line1.strip())
+        for line2 in data:
+            num2 = int(line2.strip())
+            if num1 != num2:
+                for line3 in data:
+                    num3 = int(line3.strip())
+                    if num1 != num3 and num2 != num3:
+                        if num1 + num2 + num3 == 2020:
+                            print(num1, num2, num3)
+                            return num1 * num2 * num3
+
     return None
 
 
